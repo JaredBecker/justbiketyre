@@ -80,7 +80,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                         if ($stock_listing) {
                             if (count($stock_listing) > 0) {
                                 foreach ($stock_listing as $stock_item) {
-                                    $href = "includes/stock_details.php?id={$stock_item['id']}"
+                                    $href = "includes/stock_details.php?id={$stock_item['id']}";
                                     ?>
                                     <tr>
                                         <th scope="row">
@@ -90,7 +90,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                                         <td><?php echo  $stock_item["description"] ?></td>
                                         <td><?php echo  $stock_item["manufacturer_description"] ?></td>
                                         <td><?php echo  $stock_item["size"] ?></td>
-                                        <td><?php echo  $stock_item["type_description"] ?></td>
+                                        <td><?php echo  $stock_item["type_description"] != "" ? $stock_item["type_description"] : "No Type Found" ?></td>
                                         <td class="text-right">R <?php echo  number_format($stock_item["sell_price_ex_vat"], 2) ?></td>
                                     </tr>
                                     <?php
