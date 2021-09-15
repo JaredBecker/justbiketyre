@@ -66,8 +66,8 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                 <table id="stock_table" class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">code</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Code</th>
                             <th scope="col">Description</th>
                             <th scope="col">Manufacturer</th>
                             <th scope="col">Size</th>
