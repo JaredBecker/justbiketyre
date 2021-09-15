@@ -70,9 +70,9 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                             <th scope="col">code</th>
                             <th scope="col">Description</th>
                             <th scope="col">Manufacturer</th>
-                            <th scope="col">Price</th>
                             <th scope="col">Size</th>
                             <th scope="col">Type</th>
+                            <th scope="col">Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,9 +89,9 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                                         <td><?php echo  $stock_item["code"] ?></td>
                                         <td><?php echo  $stock_item["description"] ?></td>
                                         <td><?php echo  $stock_item["manufacturer_description"] ?></td>
-                                        <td><?php echo  $stock_item["sell_price_ex_vat"] ?></td>
                                         <td><?php echo  $stock_item["size"] ?></td>
                                         <td><?php echo  $stock_item["type_description"] ?></td>
+                                        <td class="text-right">R <?php echo  number_format($stock_item["sell_price_ex_vat"], 2) ?></td>
                                     </tr>
                                     <?php
                                 }
