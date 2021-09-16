@@ -12,10 +12,10 @@ include_once("includes/process_login.php");
             <h3 class="text-center">Log in</h3>
             <p class="card-text text-center">New to JustBikeTyre? <a href="register.php">Sign up</a></p>
             <?php
-            if (isset($_SESSION["error_message"]) && $_SESSION["error_message"] != "") {
+            if (isset($_SESSION["ERROR_MESSAGE"]) && $_SESSION["ERROR_MESSAGE"] != "") {
             ?>
                 <div class="alert alert-danger">
-                    <?php echo  $_SESSION["error_message"] ?>
+                    <?php echo $_SESSION["ERROR_MESSAGE"] ?>
                 </div>
             <?php
             }

@@ -12,10 +12,10 @@ include_once("includes/process_registration.php");
             <h3 class="text-center">Sign Up</h3>
             <p class="card-text text-center">Already have an account? <a href="login.php">Log in</a></p>
             <?php
-            if (isset($_SESSION["error_message"]) && $_SESSION["error_message"] != "") {
+            if (isset($_SESSION["ERROR_MESSAGE"]) && $_SESSION["ERROR_MESSAGE"] != "") {
                 ?>
                 <div class="alert alert-danger">
-                    <?php echo  $_SESSION["error_message"] ?>
+                    <?php echo  $_SESSION["ERROR_MESSAGE"] ?>
                 </div>
                 <?php
             }

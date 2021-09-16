@@ -80,7 +80,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                         if ($stock_listing) {
                             if (count($stock_listing) > 0) {
                                 foreach ($stock_listing as $stock_item) {
-                                    $href = "includes/stock_details.php?id={$stock_item['id']}";
+                                    $href = "stock_details.php?id={$stock_item['id']}";
                                     ?>
                                     <tr>
                                         <th scope="row">
