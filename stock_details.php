@@ -29,7 +29,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                 </a>
             </h1>
             <hr>
-            <form action="stock_details.php" method="POST">
+            <form action="stock_details.php?id=<?php echo $id?>" method="POST">
                 <input type="hidden" name="id" value="<?php echo $id ?>">
                 <div class="row">
                     <div class="mb-3 col-sm-6">
@@ -48,19 +48,15 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                         <label for="sell_price" class="form-label">Sell Price Ex VAT</label>
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">R</span>
-                            <input type="text" class="form-control" name="sell_price_ex_vat" id="sell_price" value="<?php echo $sell_price_ex_vat ?>">
+                            <input type="number" class="form-control" name="sell_price_ex_vat" id="sell_price" value="<?php echo number_format($sell_price_ex_vat, 2, ".", "") ?>">
                         </div>
                     </div>
                     <div class="mb-3 col-sm-6">
                         <label for="type_id" class="form-label">Type</label>
-                        <select class="form-control" name="type_id" id="type_id">
+                        <select class="form-select" name="type_id" id="type_id">
+                            <option value="0" selected>No Type Set</option>
                             <?php
                             if (count($types) > 0) {
-                                if ($current_type == 0) {
-                                    ?>
-                                    <option value="0" selected>No Type Set</option>
-                                    <?php
-                                }
                                 foreach($types as $type) {
                                     ?>
                                     <option value="<?php echo $type["id"] ?>" <?php echo $current_type == $type["id"] ? "selected" : "" ?>>
@@ -74,14 +70,10 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                     </div>
                     <div class="mb-3 col-sm-6">
                         <label for="manufacturer_id" class="form-label">Manufacturer</label>
-                        <select class="form-control" name="manufacturer_id" id="manufacturer_id">
+                        <select class="form-select" name="manufacturer_id" id="manufacturer_id">
+                            <option value="0">No Manufacturer Set</option>
                             <?php
                             if (count($manufacturers) > 0) {
-                                if ($current_manufacturer == 0) {
-                                    ?>
-                                    <option value="0" selected>No Manufacturer Set</option>
-                                    <?php
-                                }
                                 foreach($manufacturers as $manufacturer) {
                                     ?>
                                     <option value="<?php echo $manufacturer["id"] ?>" <?php echo $current_manufacturer == $manufacturer["id"] ? "selected" : "" ?>>
@@ -95,7 +87,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                     </div>
                     <div class="col-12 text-center">
                         <button name="submit" class="btn btn-primary">
-                            Edit Stock Item
+                            Save
                         </button>
                     </div>
                 </div>
@@ -104,6 +96,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
     </div>
     <?php
     $hide_footer = false;
+    $sticky = true;
     include_once("includes/footer.php");
 } else {
     header("Location: login.php");

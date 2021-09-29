@@ -18,7 +18,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                     <h4 class="text-center">Filter Stock</h4>
                     <div class="row">
                         <div class="col-6 col-lg-4 mb-3">
-                            <select class="form-control" name="manufacturer" id="manufacturer" value="<?php echo $manufacturers_id ?>">
+                            <select class="form-select" name="manufacturer" id="manufacturer" value="<?php echo $manufacturers_id ?>">
                                 <option value="">Select Manufacturer...</option>
                                 <?php
                                 if (count($manufacturers) > 0) {
@@ -34,7 +34,7 @@ if (isset($_SESSION["USER_LOGGED_IN"]) && $_SESSION["USER_LOGGED_IN"]) {
                             </select>
                         </div>
                         <div class="col-6 col-lg-4 mb-3">
-                            <select class="form-control" name="stock_type" id="stock_type" value="<?php echo $stock_type_id ?>">
+                            <select class="form-select" name="stock_type" id="stock_type" value="<?php echo $stock_type_id ?>">
                                 <option value="">Select Stock Type...</option>
                                 <?php
                                 if (count($stock_types) > 0) {
